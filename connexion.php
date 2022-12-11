@@ -57,10 +57,9 @@
                      $reponse      = mysqli_fetch_array($exec_requete);
                      $_SESSION['login'] = $login;
                      $_SESSION['password'] = $reponse['password'];
-                     echo "<h1>Bravo vous êtes connecté validé</h1>";
+                     echo "<h1>Bravo vous êtes connecté validé</h1>" $login;
                   }else{
                      echo "<h1>Tu est sur la Bonne voie </h1>";
-                     print_r($_POST);
                   }
                
                }else{
