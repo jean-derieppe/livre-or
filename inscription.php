@@ -1,7 +1,42 @@
 <?php
-   session_start();
-   require_once("header.php");
-   require_once("Connect.php");
+session_start();
+require_once("header.php");
+require_once("Connect.php");
+
+if (isset($_POST["submit"])){  
+    
+    if (isset($_POST['login']) && isset($_POST['password'])){
+    $login=$_POST["login"];
+    $pass=$_POST["password"];
+    $repass=$_POST["repass"];
+    $erreur='';
+        
+        // si egalité des $pass alors vérifier si le $login existent
+        if ( $pass == $repass ){
+            $req = "SELECT count(*) FROM utilisateurs where login = '".$login."'";
+            $exec_requete = $conn -> query($req);
+            $reponse      = mysqli_fetch_array($exec_requete);
+            $count = $reponse['count(*)'];
+
+            //s'il n'existe pas alors
+            if ($count == 0){
+                // créer la requête pour insérer dans utilisateurs, les valeurs login , prénom , nom et password)
+                $req = "INSERT INTO `utilisateurs`(`login`, `password`) VALUES ('$login', '$pass')";
+                // envoyer la requête
+                $create = $conn->query($req);
+                // Redirection vers la page connexion.php
+                header ('Location: connexion.php');
+            }
+            else{
+                $erreur = "<h1>Login déja existant<h1>";
+            }
+        }
+        else{
+            $erreur = "<h1>Mots de passe non similaire.<h1>";
+        }
+    }
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -28,42 +63,20 @@
                 <input type="password" name="repass" placeholder="Confirm password" style="width: 200px; height: 50px;" required />
                 <input type="submit" name="submit" value="S'inscrire" class="box-button"style="width: 150px; height: 50px;"/>
         </form>
+        <?php
+            // si la variable $erreur existe alors echo
+            if(isset($erreur)){
+                echo "$erreur";
+            }
+        ?>
+
+        <p><strong>Déjà inscrit? <a id="locate" href="connexion.php">Connectez-vous ici</a></strong></p>
+
     </div>
 </body>
 
 </html>
 
 <?php
-
-if (isset($_POST["submit"])){
-    $login=$_POST["login"];
-    $pass=$_POST["password"];
-    $repass=$_POST["repass"];
-        
-    // si egalité des $pass alors vérifier si le $login existent
-    if ( $pass == $repass ){
-        $req = "SELECT count(*) FROM utilisateurs where login = '".$login."'";
-        $exec_requete = $conn -> query($req);
-        $reponse      = mysqli_fetch_array($exec_requete);
-        $count = $reponse['count(*)'];
-
-        //s'il n'existe pas alors
-        if ($count == 0){
-            // créer la requête pour insérer dans utilisateurs, les valeurs login , prénom , nom et password)
-            $req = "INSERT INTO `utilisateurs`(`login`, `password`) VALUES ('$login', '$pass')";
-            // envoyer la requête
-            $create = $conn->query($req);
-            // Redirection vers la page connexion.php
-            header ('Location: connexion.php');
-        }
-        else{
-            echo "<h1>Login déja existant<h1>";
-        }
-    }
-    else{
-        echo "<h1>Mots de passe non similaire.<h1>";
-    }
-}
 mysqli_close($conn); 
-
 ?>
