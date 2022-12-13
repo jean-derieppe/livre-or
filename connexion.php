@@ -8,7 +8,7 @@
 <html lang="fr">
 <head>
    <meta charset="UTF-8">
-   <link rel="stylesheet" href="style.css" media="screen" type="text/css" />
+   <link rel="stylesheet" href="style.css" media="screen" type="text/css"/>
    <title>Connexion</title>
 </head>
 
@@ -17,17 +17,20 @@
    <div>
       <h1>Connexion</h1>
 
-      <form id="Formulaire" action="" method="post">
-                <label>Enter your Login</label>
-                <input type="text" class="box-input" name="login" placeholder="Login" style="width: 200px; height: 50px;" required /><br>
-                <label>Enter your password</label>
-                <input type="password" class="box-input" name="password" placeholder="Password" style="width: 200px; height: 50px;" required /><br>
-                <input type="submit" name="submit" value="S'inscrire" class="box-button"style="width: 150px; height: 50px;"/>
-        </form>
+      <form id="formulaire" action="" method="post">
+            <label><b>Login</b></label><br>
+            <input type="text" placeholder="Enter your login" name="login" required><br>
+            <label><b>Mot de passe</b></label><br>
+            <input type="password" placeholder="Enter your password" name="password" required><br>
+            <input type="submit" name='submit' value='submit'>
+            <hr>
+            <p>Pas de compte ? <a id="locate" href="inscription.php">Inscrivez-vous ici</a></p>
+            <hr class="hr1">
+         </form>
 
    </div>
-
 </body>
+
 </html>
 
 <?php
@@ -48,19 +51,21 @@
                   $reponse      = mysqli_fetch_array($exec_requete);
                   $password_hash = $reponse['password'];
                   echo " <h1> connexion réussie </h1>";
+                  // var_dump($reponse);
+                  // print_r($reponse);
 
-                  //Probléme avec ce block
-                  if (password_verify($password, $password_hash)) { //si mot de passe correct
-                     // stockage des infos de l'utilisateur dans des variables session
-                     $requete = "SELECT login password FROM utilisateurs where login = '".$login."'";
-                     $exec_requete = $conn -> query($requete);
-                     $reponse      = mysqli_fetch_array($exec_requete);
-                     $_SESSION['login'] = $login;
-                     $_SESSION['password'] = $reponse['password'];
-                     echo "<h1>Bravo vous êtes connecté validé</h1>" $login;
-                  }else{
-                     echo "<h1>Tu est sur la Bonne voie </h1>";
-                  }
+                  // //Probléme avec ce block
+                  // if (password_verify($password, $password_hash)) { //si mot de passe correct
+                  //    // stockage des infos de l'utilisateur dans des variables session
+                  //    $requete = "SELECT * FROM utilisateurs WHERE login = '$login' AND password = '$pass' ";
+                  //    $exec_requete = $conn -> query($requete);
+                  //    $reponse      = mysqli_fetch_array($exec_requete);
+                  //    $_SESSION['login'] = $login;
+                  //    $_SESSION['password'] = $reponse['password'];
+                  //    echo "<h1>Bravo vous êtes connecté validé</h1>";
+                  // }else{
+                  //    echo "<h1>Tu est sur la Bonne voie </h1>";
+                  // }
                
                }else{
                   echo "<h1>Login ou ( password ) incorrect</h1>";
