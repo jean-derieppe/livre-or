@@ -64,13 +64,13 @@ if (isset($_POST["submit"])){
                 <hr>
                 <p>Déjà inscrit? <a id="locate" href="connexion.php">Connectez-vous ici</a></p>
                 <hr class="hr1">
+                <?php
+                    // si la variable $erreur existe alors echo
+                    if(isset($erreur)){
+                        echo "$erreur";
+                    }
+                ?>
         </form>
-        <?php
-            // si la variable $erreur existe alors echo
-            if(isset($erreur)){
-                echo "$erreur";
-            }
-        ?>
 
     </div>
 </body>
