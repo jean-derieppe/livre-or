@@ -20,7 +20,7 @@
     </p>
 
     <p>
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sequi nulla atque sint expedita nemo,<br>
+        Bienvenue sur ce livre d'or qui vous permet de commenter Notre Site,<br>
         in quisquam quidem labore fugit assumenda a? Quasi iste doloremque ea unde minus reprehenderit sunt culpa.
     </p>
 
