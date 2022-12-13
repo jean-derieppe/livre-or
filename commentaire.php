@@ -16,7 +16,9 @@
 <body>
    <div>
       <h1> Bienvenue dans la section commentaires du livre d'or </h1>
-      
+      Ce formulaire ne contient qu’un champ permettant de rentrer son commentaire et
+      un bouton de validation. Il n’est accessible qu’aux utilisateurs connectés. Chaque
+      utilisateur peut poster plusieurs commentaires.
    </div>
 <?php 
 if(!isset($_session_id) != 0 ) {
