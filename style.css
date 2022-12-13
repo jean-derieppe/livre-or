@@ -13,8 +13,12 @@ html{
 
 a{
     color: black;
-    font-size: 2rem;
+    font-size: 1.5rem;
+}
+
+.head{
     text-decoration: none;
+    font-size: 2.1rem;
 }
 
 h1{
@@ -25,6 +29,16 @@ header{
     background-color: transparent;
     color: transparent;
     height: 190px;
+}
+
+input{
+    margin-top: 10;
+    margin-bottom: 10;
+    opacity: 0.4;
+}
+
+input:hover{
+    opacity: 1;
 }
 
 .header{
@@ -52,9 +66,21 @@ a:hover{
 
 #Formulaire{
     margin: auto;
-    width: 700px;
-    border-radius: 25px;
-    padding: 60px 30px 60px 30px;
-    background-color:rgba(255, 255, 255, 0.389);
+    width: 650px;
+    border-radius: 15px;
+    padding: 45px 25px 45px 25px;
+    background-color:rgba(190, 39, 39, 0.389);
+}
+
+hr{
+    size: 1px;
+    width: 85%;
+    color: rgb(235, 120, 25);
+}
+
+.hr1{
+    size: 1px;
+    width: 70%;
+    color: rgb(235, 120, 25);
 }
 
