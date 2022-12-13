@@ -16,9 +16,18 @@
 <body>
    <div>
       <h1> Bienvenue dans la section commentaires du livre d'or </h1>
-      Ce formulaire ne contient qu’un champ permettant de rentrer son commentaire et
+      <!-- Ce formulaire ne contient qu’un champ permettant de rentrer son commentaire et
       un bouton de validation. Il n’est accessible qu’aux utilisateurs connectés. Chaque
-      utilisateur peut poster plusieurs commentaires.
+      utilisateur peut poster plusieurs commentaires ( les modifier ou les supprimer). -->
+   </div>
+   <div>
+         <form id="formulaire" action="" method="post">
+            <h2>Votre Commentaire :</h2>
+            <textarea id="story" name="story"rows="8" cols="55" placeholder="Enter your Comment..."></textarea><br>
+            <input type="submit" name='submit' value='submit'>
+            <hr>
+            <p>Pas de compte ? <a id="locate" href="inscription.php">Inscrivez-vous ici</a></p>
+         </form>
    </div>
 <?php 
 if(!isset($_session_id) != 0 ) {
