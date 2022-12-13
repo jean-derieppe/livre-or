@@ -54,14 +54,16 @@ if (isset($_POST["submit"])){
         <p>Participez à la vie de ce livre d'or et faite participer vos ami(e)s.</p>
 
         <form id="Formulaire" action="" method="post">
-            <h1>inscription</h1>
-                <label>Enter your Login</label>
-                <input type="text" class="box-input" name="login" placeholder="Login" style="width: 200px; height: 50px;" required /><br>
-                <label>Enter your password</label>
-                <input type="password" class="box-input" name="password" placeholder="Password" style="width: 200px; height: 50px;" required /><br>
-                <label>Confirm your password</label>
-                <input type="password" name="repass" placeholder="Confirm password" style="width: 200px; height: 50px;" required />
-                <input type="submit" name="submit" value="S'inscrire" class="box-button"style="width: 150px; height: 50px;"/>
+                <strong><label>Entrez votre Login</label></strong><br>
+                <input type="text" class="box-input" name="login" placeholder="Login" required /><br>
+                <strong><label>Entrez votre Mots de passe</label></strong><br>
+                <input type="password" class="box-input" name="password" placeholder="Password" required /><br>
+                <strong><label>Confirmez votre Mots de passe</label></strong><br>
+                <input type="password" name="repass" placeholder="Confirm password" required /><br>
+                <input type="submit" name="submit" value="S'inscrire" class="box-button"/>
+                <hr>
+                <p>Déjà inscrit? <a id="locate" href="connexion.php">Connectez-vous ici</a></p>
+                <hr class="hr1">
         </form>
         <?php
             // si la variable $erreur existe alors echo
@@ -69,8 +71,6 @@ if (isset($_POST["submit"])){
                 echo "$erreur";
             }
         ?>
-
-        <p><strong>Déjà inscrit? <a id="locate" href="connexion.php">Connectez-vous ici</a></strong></p>
 
     </div>
 </body>
